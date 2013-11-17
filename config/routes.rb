@@ -1,9 +1,10 @@
 Sharemyride::Application.routes.draw do
-  devise_for :users
-
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => 'home#index'
+
+  # routes for user authentication
+  devise_for :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

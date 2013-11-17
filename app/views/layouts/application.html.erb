@@ -7,8 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <nav>
+    <!-- Devise menu options -->
+    <ul class="hmenu">
+      <%= render 'devise/menu/registration_items' %>
+      <%= render 'devise/menu/login_items' %>
+    </ul>
+  </nav>
+
+  <section>
+    <!-- area for error messages related to the application-->
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </section>
 
   <%= yield %>
 
