@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131117005115) do
+ActiveRecord::Schema.define(:version => 20131117041336) do
+
+  create_table "trips", :force => true do |t|
+    t.datetime "departure_date"
+    t.string   "departure_location"
+    t.string   "arrival_location"
+    t.integer  "available_seats"
+    t.decimal  "seat_cost",          :precision => 8, :scale => 2
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
