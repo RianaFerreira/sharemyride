@@ -1,0 +1,5 @@
+@import "foundation";
+
+input[type='submit'] {
+  @include button;
+}

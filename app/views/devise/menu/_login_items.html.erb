@@ -1,6 +1,6 @@
   <!-- Devise auth menu partial for login -->
   <% if user_signed_in? %>
-    <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+    <li><%= link_to('Logout', destroy_user_session_path, :method => :delete, :class =>"button") %></li>
   <% else %>
-    <li><%= link_to('Login', new_user_session_path)  %></li>
+    <li><%= link_to('Login', new_user_session_path, :class =>"button")  %></li>
   <% end %>
