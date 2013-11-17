@@ -21,10 +21,11 @@ JQUERY PLUGINS
 jQuery UI - date picker for trip creation http://jqueryui.com/datepicker/
 
 APIs
-Google Maps JavaScript API v3 https://developers.google.com/maps/documentation/javascript/examples/map-geolocation
+Google Maps JavaScript API v3 - auto-completion of the trip locations https://developers.google.com/maps/documentation/javascript/examples/map-geolocation
 
 REFERENCE MATERIAL
-Images
+Images -
+Colour Scheme - https://kuler.adobe.com/create/color-wheel/
 Hipster Ipsum - generic website content http://hipsteripsum.me (I know, I know, I should have taken more time with this, maybe one day I'll return to the project and redeem myself)
 Stoned Crow - Australian slang guide http://www.stonedcrow.com/backpacker_tools/oz_slang.htm
 

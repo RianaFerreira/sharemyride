@@ -11,16 +11,41 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131117041336) do
+ActiveRecord::Schema.define(:version => 20131117064732) do
+
+  create_table "itineraries", :force => true do |t|
+    t.string   "location_type"
+    t.integer  "trip_id"
+    t.integer  "location_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "locations", :force => true do |t|
+    t.string   "name"
+    t.string   "lat"
+    t.string   "long"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "travellers", :force => true do |t|
+    t.string   "role"
+    t.string   "name"
+    t.integer  "num_seats"
+    t.integer  "user_id"
+    t.integer  "trip_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "trips", :force => true do |t|
-    t.datetime "departure_date"
-    t.string   "departure_location"
-    t.string   "arrival_location"
-    t.integer  "available_seats"
-    t.decimal  "seat_cost",          :precision => 8, :scale => 2
-    t.datetime "created_at",                                       :null => false
-    t.datetime "updated_at",                                       :null => false
+    t.datetime "dept_date"
+    t.integer  "avail_seats"
+    t.decimal  "seat_cost",   :precision => 8, :scale => 2
+    t.string   "status"
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
   end
 
   create_table "users", :force => true do |t|

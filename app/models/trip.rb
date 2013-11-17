@@ -2,19 +2,26 @@
 #
 # Table name: trips
 #
-#  id                 :integer          not null, primary key
-#  departure_date     :datetime
-#  departure_location :string(255)
-#  arrival_location   :string(255)
-#  available_seats    :integer
-#  seat_cost          :decimal(8, 2)
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
+#  id          :integer          not null, primary key
+#  dept_date   :datetime
+#  avail_seats :integer
+#  seat_cost   :decimal(8, 2)
+#  status      :string(255)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
 #
 
 class Trip < ActiveRecord::Base
-  attr_accessible :departure_date, :departure_location, :arrival_location, :available_seats, :seat_cost, :user_id
-  belongs_to :user
-  validates :departure_date, :departure_location, :arrival_location, :available_seats, :seat_cost, :presence => true
+  # mass data assignment allowed for these attributes
+  attr_accessible :dept_date, :avail_seats, :seat_cost, :status
 
+  # table associations
+  has_many :travellers
+  has_many :users, :through => :travellers
+
+  has_many :itineraries
+  has_many :locations, :through => :itineraries
+
+  # db validations applied to attributes
+  validates :dept_date, :avail_seats, :seat_cost, :presence => true
 end
