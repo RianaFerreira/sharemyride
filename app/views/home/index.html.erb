@@ -1,1 +1,32 @@
-<h1>Share My Ride</h1>
+<div class="row">
+  <div class="large-12 columns">
+    <h1>Catch a lift</h1>
+  </div>
+</div>
+
+<div class="row">
+  <%= form_tag '/search', class: 'custom geocode' do %>
+  <div class="large-3 columns">
+    <%= text_field_tag 'depart',nil, placeholder: 'Departure City', class:'depart'  %>
+  </div>
+
+  <div class="large-3 columns">
+    <%= text_field_tag 'destination',nil, placeholder: 'Destination City', class: 'destination' %>
+  </div>
+  <div class="large-2 columns">
+    <%= text_field_tag 'date', nil, class: 'date'%>
+  </div>
+  <div class="large-2 columns">
+    <select>
+      <option>1 seat</option>
+      <option>2 seats</option>
+      <option>3 seats</option>
+      <option>4 seats</option>
+      <option>5 seats</option>
+     </select>
+  </div>
+  <div class="large-2 columns">
+    <input type="submit" value="Search"/>
+  </div>
+<%end %>
+</div>
