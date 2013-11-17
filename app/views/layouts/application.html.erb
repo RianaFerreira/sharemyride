@@ -22,8 +22,9 @@
 
 <body>
 <!-- Header and Nav -->
+<section id="main">
 
-<div class="row">
+<div class="row header">
   <div class="large-3 columns">
     <h1><img src="http://placehold.it/400x100&text=Logo"></h1>
   </div>
@@ -41,15 +42,18 @@
 
 <!-- First Band (Image) -->
 
-<div class="row">
+<div class="row body">
   <div class="large-12 columns">
     <%= yield %>
   </div>
 </div>
+<div class="push">
+</div>
+</section>
 
 <!-- Footer -->
 
-<footer class="row">
+<footer class="row footer">
   <div class="large-12 columns">
     <hr />
     <div class="row">
