@@ -11,28 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131117064732) do
+ActiveRecord::Schema.define(:version => 20131117061739) do
 
-  create_table "itineraries", :force => true do |t|
-    t.string   "location_type"
+  create_table "locations", :force => true do |t|
+    t.integer  "trip_position"
+    t.string   "name"
+    t.text     "address"
+    t.string   "lat"
+    t.string   "long"
     t.integer  "trip_id"
-    t.integer  "location_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
 
-  create_table "locations", :force => true do |t|
-    t.string   "name"
-    t.string   "lat"
-    t.string   "long"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "travellers", :force => true do |t|
-    t.string   "role"
-    t.string   "name"
-    t.integer  "num_seats"
+  create_table "passengers", :force => true do |t|
     t.integer  "user_id"
     t.integer  "trip_id"
     t.datetime "created_at", :null => false
@@ -41,11 +33,12 @@ ActiveRecord::Schema.define(:version => 20131117064732) do
 
   create_table "trips", :force => true do |t|
     t.datetime "dept_date"
-    t.integer  "avail_seats"
-    t.decimal  "seat_cost",   :precision => 8, :scale => 2
+    t.integer  "num_seats"
+    t.decimal  "seat_cost",  :precision => 8, :scale => 2
     t.string   "status"
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.integer  "driver_id"
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
   end
 
   create_table "users", :force => true do |t|

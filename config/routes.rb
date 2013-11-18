@@ -3,6 +3,8 @@ Sharemyride::Application.routes.draw do
   # just remember to delete public/index.html.
   root :to => 'home#index'
 
+  resources :trips
+
   # routes for user authentication
   devise_for :users
 

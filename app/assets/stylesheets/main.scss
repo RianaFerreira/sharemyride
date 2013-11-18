@@ -9,7 +9,7 @@ body {
   background-size:200%;
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  background-attachment: fixed; 
+  background-attachment: fixed;
 }
 #main {
   min-height:100%;
@@ -32,3 +32,8 @@ input[type='submit'] {
   background: rgba($color-1, 0.8);
 }
 
+.page-body{
+  padding: 2em;
+  background:$color-1;
+  background: rgba($color-1, 0.8);
+}

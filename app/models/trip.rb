@@ -2,26 +2,26 @@
 #
 # Table name: trips
 #
-#  id          :integer          not null, primary key
-#  dept_date   :datetime
-#  avail_seats :integer
-#  seat_cost   :decimal(8, 2)
-#  status      :string(255)
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id         :integer          not null, primary key
+#  dept_date  :datetime
+#  num_seats  :integer
+#  seat_cost  :decimal(8, 2)
+#  status     :string(255)
+#  driver_id  :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 class Trip < ActiveRecord::Base
   # mass data assignment allowed for these attributes
-  attr_accessible :dept_date, :avail_seats, :seat_cost, :status
+  attr_accessible :dept_date, :num_seats, :seat_cost, :status, :driver_id
 
   # table associations
-  has_many :travellers
-  has_many :users, :through => :travellers
+  has_many :passengers
+  has_many :locations
+  belongs_to :driver, :foreign_key => 'driver_id', :class_name => 'User'
 
-  has_many :itineraries
-  has_many :locations, :through => :itineraries
-
+  accepts_nested_attributes_for :locations
   # db validations applied to attributes
-  validates :dept_date, :avail_seats, :seat_cost, :presence => true
+  validates :dept_date, :num_seats, :seat_cost, :presence => true
 end

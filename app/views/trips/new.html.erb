@@ -1,0 +1,27 @@
+<div class="row page-body">
+ <div class="large-6 columns">
+<h1>Add A New Trip</h1>
+<%= form_for(@trip, url: trips_path, html: {class:'custom geocode'}) do |f| %>
+
+  <%= label_tag(:dept_date, "Departure Date") %>
+  <%= f.text_field(:dept_date, class: 'date') %>
+
+  <%= label_tag(:num_seats, "Available Seats") %>
+  <%= f.text_field(:num_seats) %>
+
+  <%= label_tag(:seat_cost, "Price") %>
+  <%= f.text_field(:seat_cost) %>
+
+  <% @trip.locations.each do |location| %>
+    <%= f.fields_for :locations, location do |location_fields| %>
+      <%= label_tag(:name, location.trip_position == 0 ? 'Depart': 'Destination') %>
+      <%= location_fields.text_field(:name, class:location.trip_position == 0 ? 'depart': 'destination' ) %>
+    <% end %>
+  <% end %>
+  <a href="#" class="button">Save</a>
+<% end %>
+ </div>
+ <div class="large-6 columns">
+
+ </div>
+</row>

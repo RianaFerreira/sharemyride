@@ -28,4 +28,4 @@ Images -
 Colour Scheme - https://kuler.adobe.com/create/color-wheel/
 Hipster Ipsum - generic website content http://hipsteripsum.me (I know, I know, I should have taken more time with this, maybe one day I'll return to the project and redeem myself)
 Stoned Crow - Australian slang guide http://www.stonedcrow.com/backpacker_tools/oz_slang.htm
-
+Device Bugs - research identified problems for mobile solution https://github.com/scottjehl/Device-Bugs/issues

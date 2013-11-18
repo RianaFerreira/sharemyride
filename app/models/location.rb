@@ -2,21 +2,23 @@
 #
 # Table name: locations
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  lat        :string(255)
-#  long       :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id            :integer          not null, primary key
+#  trip_position :integer
+#  name          :string(255)
+#  address       :text
+#  lat           :string(255)
+#  long          :string(255)
+#  trip_id       :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
 #
 
 class Location < ActiveRecord::Base
   # mass data assignment allowed for these attributes
-  attr_accessible :name, :lat, :long
+  attr_accessible :trip_position, :name, :address, :lat, :long, :trip_id
 
   # table associations
-  has_many :itineraries
-  has_many :trips, :through => :itinerary
+  belongs_to :trip
 
   # db validations applied to attributes
 
