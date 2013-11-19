@@ -1,7 +1,14 @@
 <div class="row page-body">
+    <% if @trip.errors.any? %>
+      <ol>
+          <% @trip.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+      </ol>
+  <% end %>
  <div class="large-6 columns">
 <h1>Add A New Trip</h1>
-<%= form_for(@trip, url: trips_path, html: {class:'custom geocode'}) do |f| %>
+<%= form_for(@trip, html: {class:'custom geocode'}) do |f| %>
 
   <%= label_tag(:dept_date, "Departure Date") %>
   <%= f.text_field(:dept_date, class: 'date') %>
@@ -18,10 +25,18 @@
       <%= location_fields.text_field(:name, class:location.trip_position == 0 ? 'depart': 'destination' ) %>
     <% end %>
   <% end %>
-  <a href="#" class="button">Save</a>
+  <%= f.submit "Save Trip" %>
 <% end %>
  </div>
- <div class="large-6 columns">
 
+ <div class="large-6 columns">
+  <!-- loop through all the trips associated with the user and list them here -->
+  <ul>
+    <h2>Your Trips</h2>
+    <li>Departure Date, Departure, Destination, Seats, Cost</li>
+    <% @driver_trips.each do |trip| %>
+      <li><%= link_to(trip.dept_date, trips_path) %><%= " #{trip.locations.map{|l| l.name }.join(', ')} #{trip.num_seats} seats, $#{trip.seat_cost} each" %></li>
+    <% end %>
+  </ul>
  </div>
 </row>

@@ -1,0 +1,27 @@
+ <div class="row page-body">
+  <h1>All Trips</h1>
+
+  <div class="large-12 columns">
+    <table>
+      <thead>
+        <tr>
+          <th>Departure Date</th>
+          <th>Departure Point</th>
+          <th>Destination</th>
+          <th>Seats</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <% @trips.each do |trip| %>
+      <tr>
+        <td><%= link_to(trip.dept_date) %></td>
+        <td><%= trip.locations.map{|l| l.name}[0] %></td>
+        <td><%= trip.locations.map{|l| l.name}[1] %></td>
+        <td><%= trip.num_seats %></td>
+        <td>$<%= trip.seat_cost %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+
+</div>

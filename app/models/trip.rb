@@ -14,14 +14,14 @@
 
 class Trip < ActiveRecord::Base
   # mass data assignment allowed for these attributes
-  attr_accessible :dept_date, :num_seats, :seat_cost, :status, :driver_id
+  attr_accessible :dept_date, :num_seats, :seat_cost, :status, :driver_id, :locations_attributes
 
   # table associations
   has_many :passengers
   has_many :locations
   belongs_to :driver, :foreign_key => 'driver_id', :class_name => 'User'
-
   accepts_nested_attributes_for :locations
+
   # db validations applied to attributes
   validates :dept_date, :num_seats, :seat_cost, :presence => true
 end
