@@ -4,7 +4,6 @@ class CreateTrips < ActiveRecord::Migration
       t.datetime :dept_date
       t.integer :num_seats
       t.decimal :seat_cost, precision: 8, scale: 2
-      t.string :status
       t.integer :driver_id
       t.timestamps
     end

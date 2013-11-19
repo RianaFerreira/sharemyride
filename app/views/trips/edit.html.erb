@@ -1,0 +1,44 @@
+<h1>Alter Trip</h1>
+
+<div class="row page-body">
+
+    <% if @trip.errors.any? %>
+      <ol>
+          <% @trip.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+      </ol>
+  <% end %>
+
+  <div class="large-6 columns">
+
+    <h2>Trip Information</h2>
+
+    <%= form_for(@trip, html: {class:'custom geocode'}) do |f| %>
+
+      <%= label_tag(:dept_date, "Departure Date") %>
+      <%= f.text_field(:dept_date, class: 'date') %>
+
+      <%= label_tag(:num_seats, "Available Seats") %>
+      <%= f.text_field(:num_seats) %>
+
+      <%= label_tag(:seat_cost, "Price") %>
+      <%= f.text_field(:seat_cost) %>
+
+      <% @trip.locations.each do |location| %>
+        <%= f.fields_for :locations, location do |location_fields| %>
+          <%= label_tag(:name, location.trip_position == 0 ? 'Depart': 'Destination') %>
+          <%= location_fields.text_field(:name, class:location.trip_position == 0 ? 'depart': 'destination' ) %>
+          <%= location_fields.hidden_field :trip_position %>
+        <% end %>
+      <% end %>
+
+      <%= f.submit "Save Trip" %>
+      <%= link_to('Cancel Trip', @trip, method: :delete, :class => "button") %>
+
+    <% end %>
+
+
+  </div>
+
+</div>

@@ -17,6 +17,7 @@ RUBY GEMS
 Devise - user authentication features https://github.com/plataformatec/devise#getting-started
 Foundation - responsive front-end framework https://github.com/zurb/foundation
 
+
 JQUERY PLUGINS
 jQuery UI - date picker for trip creation http://jqueryui.com/datepicker/
 

@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(:version => 20131117061739) do
   create_table "locations", :force => true do |t|
     t.integer  "trip_position"
     t.string   "name"
-    t.text     "address"
     t.string   "lat"
     t.string   "long"
     t.integer  "trip_id"
@@ -35,7 +34,6 @@ ActiveRecord::Schema.define(:version => 20131117061739) do
     t.datetime "dept_date"
     t.integer  "num_seats"
     t.decimal  "seat_cost",  :precision => 8, :scale => 2
-    t.string   "status"
     t.integer  "driver_id"
     t.datetime "created_at",                               :null => false
     t.datetime "updated_at",                               :null => false

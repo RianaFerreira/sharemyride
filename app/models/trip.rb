@@ -6,7 +6,6 @@
 #  dept_date  :datetime
 #  num_seats  :integer
 #  seat_cost  :decimal(8, 2)
-#  status     :string(255)
 #  driver_id  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -14,7 +13,7 @@
 
 class Trip < ActiveRecord::Base
   # mass data assignment allowed for these attributes
-  attr_accessible :dept_date, :num_seats, :seat_cost, :status, :driver_id, :locations_attributes
+  attr_accessible :dept_date, :num_seats, :seat_cost, :driver_id, :locations_attributes
 
   # table associations
   has_many :passengers
@@ -24,4 +23,12 @@ class Trip < ActiveRecord::Base
 
   # db validations applied to attributes
   validates :dept_date, :num_seats, :seat_cost, :presence => true
+
+  def start_point
+    locations.where(:trip_position => 0).first
+  end
+
+  def end_point
+    locations.where(:trip_position => 1).first
+  end
 end

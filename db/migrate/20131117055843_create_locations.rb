@@ -3,7 +3,6 @@ class CreateLocations < ActiveRecord::Migration
     create_table :locations do |t|
       t.integer :trip_position
       t.string :name
-      t.text :address
       t.string :lat
       t.string :long
       t.belongs_to :trip

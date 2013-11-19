@@ -1,0 +1,72 @@
+<div class="row page-body">
+
+    <% if @trip.errors.any? %>
+      <ol>
+          <% @trip.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+      </ol>
+  <% end %>
+
+  <div class="large-6 columns">
+
+    <h2>Trip Information</h2>
+
+    <%= form_for(@trip, html: {class:'custom geocode'}) do |f| %>
+
+      <%= label_tag(:dept_date, "Departure Date") %>
+      <%= f.text_field(:dept_date, class: 'date') %>
+
+      <%= label_tag(:num_seats, "Available Seats") %>
+      <%= f.text_field(:num_seats) %>
+
+      <%= label_tag(:seat_cost, "Price") %>
+      <%= f.text_field(:seat_cost) %>
+
+      <% @trip.locations.each do |location| %>
+        <%= f.fields_for :locations, location do |location_fields| %>
+          <%= label_tag(:name, location.trip_position == 0 ? 'Depart': 'Destination') %>
+          <%= location_fields.text_field(:name, class:location.trip_position == 0 ? 'depart': 'destination' ) %>
+          <%= location_fields.hidden_field :trip_position %>
+        <% end %>
+      <% end %>
+
+      <%= f.submit "Save Trip" %>
+
+    <% end %>
+  </div>
+
+   <div class="large-6 columns">
+    <!-- loop through all the trips associated with the user and list them here -->
+      <h2>All Your Trips</h2>
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Departure Date</th>
+            <th>Departure Point</th>
+            <th>Destination</th>
+            <th>Seats</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+
+        <% @driver_trips.each do |trip| %>
+          <!-- only display the trips that start on or after today -->
+          <% if trip.dept_date %>
+            <tr>
+              <td><%= link_to(trip.dept_date, edit_trip_path(trip.id)) %></td>
+              <td><%= trip.start_point.name %></td>
+              <td><%= trip.end_point.name %></td>
+              <td><%= trip.num_seats %></td>
+              <td><%= trip.seat_cost %></td>
+            </tr>
+          <% end %>
+        <% end %>
+
+    </table>
+
+   </div>
+
+</div>

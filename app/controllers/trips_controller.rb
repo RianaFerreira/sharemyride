@@ -18,12 +18,37 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new(params[:trip])
     @trip.driver_id = current_user.id
+
     #raise 'err'
     if @trip.save
       redirect_to new_trip_path
     else
-      logger.debug @trip.errors.to_json
+      #logger.debug @trip.errors.to_json
       render :action => :new
+    end
+  end
+
+  def edit
+    @trip = Trip.find(params[:id])
+  end
+
+  def update
+    @trip = Trip.find(params[:id])
+
+    if @trip.update_attributes(params[:trip])
+      redirect_to new_trip_path
+    else
+      render :action => :edit
+    end
+  end
+
+  def destroy
+    @trip = Trip.find(params[:id])
+
+    if @trip.destroy
+      redirect_to new_trip_path
+    else
+      render :action => :edit
     end
   end
 
