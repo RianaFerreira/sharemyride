@@ -8,9 +8,9 @@
 
       <ul>
         <!-- Driver Profile -->
-        <li><span>Driver is </span><span><%= @trip.driver_id %></span></li>
-        <!-- gravitar -->
-        <!-- email and rating -->
+        <li><%= image_tag( avatar_url(@trip.driver) ) %></li>
+        <li><%= @trip.driver.email %></li>
+
         <!-- Trip Details -->
         <li><span>Departure Date </span><span><%= @trip.dept_date.strftime("%a, %m-%d-%y") %></span></li>
         <li><span>Departure Point </span><span><%= @trip.start_point.name %></span></li>
