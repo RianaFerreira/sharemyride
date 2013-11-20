@@ -45,12 +45,6 @@
       end
     end
 
-    #if params[:num_seats].present?
-    #  @trips = @trips.select do |trip|
-    #    trip.num_seats == params[:num_seats].to_i
-    #  end
-    #end
-
     render :index
   end
 

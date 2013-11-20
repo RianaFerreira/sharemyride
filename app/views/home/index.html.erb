@@ -8,15 +8,15 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row search-bar">
 
       <%= form_tag '/trips/search', class: 'custom geocode', :method => 'get' do %>
 
-        <div class="large-3 columns">
+        <div class="large-4 columns">
           <%= text_field_tag 'depart',nil, placeholder: 'Departure City', class:'depart'  %>
         </div>
 
-        <div class="large-3 columns">
+        <div class="large-4 columns">
           <%= text_field_tag 'destination',nil, placeholder: 'Destination City', class: 'destination' %>
         </div>
 
@@ -25,17 +25,7 @@
         </div>
 
         <div class="large-2 columns">
-          <select name="num_seats">
-            <option>1 seat</option>
-            <option>2 seats</option>
-            <option>3 seats</option>
-            <option>4 seats</option>
-            <option>5 seats</option>
-          </select>
-        </div>
-
-        <div class="large-2 columns">
-          <input type="submit" value="Search" />
+          <input type="submit" id="search-button" value="Search" />
         </div>
 
       <%end %>
