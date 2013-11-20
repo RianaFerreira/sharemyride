@@ -11,6 +11,6 @@
       console.log(result.geometry.location.lng());
     });
     $('.geocode .destination').geocomplete(geoOpts);
-    $('.geocode .date').datepicker({ dateFormat: 'dd-mm-yy' });
+    $('.geocode .date').datepicker({ dateFormat: 'yy-mm-dd' });
   });
 })(jQuery);

@@ -1,4 +1,9 @@
   class TripsController < ApplicationController
+  before_filter :load_driver_trips, :only => [:new, :create]
+
+  def load_driver_trips
+    @driver_trips = Trip.where(driver_id: current_user.id).where('dept_date > ?', Time.now.beginning_of_day).order(:dept_date)
+  end
 
   def show
     # find a selected trip
@@ -20,7 +25,8 @@
 
     if params[:depart].present?
       # Horrible magic, please disregard.
-      depart = params[:depart].split(',')[0] # Just the city please.
+      #depart = params[:depart].split(',')[0] # Just the city please.
+      depart = params[:depart]
       @trips = @trips.select do |trip|
         depart.in?(
           trip.locations.where(:trip_position => 0).map(&:name)
@@ -30,27 +36,25 @@
 
     if params[:destination].present?
       # Horrible magic, please disregard.
-      destination = params[:destination].split(',')[0] # Just the city please.
+      #destination = params[:destination].split(',')[0] # Just the city please.
+      destination = params[:destination]
       @trips = @trips.select do |trip|
         destination.in?(
           trip.locations.where(:trip_position => 1).map(&:name)
-        ).order(:dept_date)
+        )
       end
     end
 
-    if params[:num_seats].present?
-      @trips = @trips.select do |trip|
-        trip.num_seats == params[:num_seats].to_i
-      end
-    end
+    #if params[:num_seats].present?
+    #  @trips = @trips.select do |trip|
+    #    trip.num_seats == params[:num_seats].to_i
+    #  end
+    #end
 
     render :index
   end
 
   def new
-    # find all pending trips for a driver
-    @driver_trips = Trip.where(driver_id: current_user.id).where('dept_date > ?', Time.now.beginning_of_day).order(:dept_date)
-
     # initialize a new trip
     @trip = Trip.new
     @locationA = Location.new
@@ -62,7 +66,6 @@
   end
 
   def create
-    # commit the details of a new trip
     @trip = Trip.new(params[:trip])
     @trip.driver_id = current_user.id
 
