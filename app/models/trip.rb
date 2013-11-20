@@ -24,6 +24,10 @@ class Trip < ActiveRecord::Base
   # db validations applied to attributes
   validates :dept_date, :num_seats, :seat_cost, :presence => true
 
+  def search_query
+    #move the code to build up the seach query here
+  end
+
   def start_point
     locations.where(:trip_position => 0).first
   end

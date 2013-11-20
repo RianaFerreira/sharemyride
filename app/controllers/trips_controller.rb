@@ -1,4 +1,4 @@
-class TripsController < ApplicationController
+  class TripsController < ApplicationController
 
   def show
     # find a selected trip
@@ -11,8 +11,40 @@ class TripsController < ApplicationController
   end
 
   def search
-    # look for all trips based on search criteria
-    raise params.inspect
+    # Sorry about all this, Daniel.
+    if params[:date].present?
+      @trips = Trip.where('dept_date >= ?', params[:date])
+    else
+      @trips = Trip.where('dept_date > ?', Time.now.beginning_of_day).order(:dept_date)
+    end
+
+    if params[:depart].present?
+      # Horrible magic, please disregard.
+      depart = params[:depart].split(',')[0] # Just the city please.
+      @trips = @trips.select do |trip|
+        depart.in?(
+          trip.locations.where(:trip_position => 0).map(&:name)
+        )
+      end
+    end
+
+    if params[:destination].present?
+      # Horrible magic, please disregard.
+      destination = params[:destination].split(',')[0] # Just the city please.
+      @trips = @trips.select do |trip|
+        destination.in?(
+          trip.locations.where(:trip_position => 1).map(&:name)
+        ).order(:dept_date)
+      end
+    end
+
+    if params[:num_seats].present?
+      @trips = @trips.select do |trip|
+        trip.num_seats == params[:num_seats].to_i
+      end
+    end
+
+    render :index
   end
 
   def new
@@ -34,7 +66,6 @@ class TripsController < ApplicationController
     @trip = Trip.new(params[:trip])
     @trip.driver_id = current_user.id
 
-    #raise 'err'
     if @trip.save
       redirect_to new_trip_path
     else

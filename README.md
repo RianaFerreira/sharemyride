@@ -8,7 +8,7 @@ GITHUB REPOSITORY
 https://github.com/RianaFerreira/sharemyride.git
 
 HEROKU URL
-
+http://gasharemyride.herokuapp.com/
 
 PROJECT MANAGEMENT
 Pivotal Tracker - story management https://www.pivotaltracker.com/projects/958378
