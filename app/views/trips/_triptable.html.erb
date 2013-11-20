@@ -6,7 +6,9 @@
           <th>Destination</th>
           <th>Seats</th>
           <th>Price</th>
-          <th>Book</th>
+          <% if user_signed_in? %>
+            <th>Book</th>
+          <% end %>
         </tr>
       </thead>
       <%= render :partial => "trips/trip", :collection => @trips %>
