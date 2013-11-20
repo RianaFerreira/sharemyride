@@ -2,26 +2,7 @@
   <h1>All Trips</h1>
 
   <div class="large-12 columns">
-    <table>
-      <thead>
-        <tr>
-          <th>Departure Date</th>
-          <th>Departure Point</th>
-          <th>Destination</th>
-          <th>Seats</th>
-          <th>Price</th>
-        </tr>
-      </thead>
-      <% @trips.each do |trip| %>
-      <tr>
-        <td><%= link_to(trip.dept_date.strftime"%H:%M:%S %Y-%m-%d") %></td>
-        <td><%= trip.start_point.name %></td>
-        <td><%= trip.end_point.name %></td>
-        <td><%= trip.num_seats %></td>
-        <td>$<%= trip.seat_cost %></td>
-      </tr>
-      <% end %>
-    </table>
+    <%= render :partial => "triptable" %>
   </div>
 
 </div>

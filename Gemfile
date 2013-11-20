@@ -6,6 +6,7 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+gem 'haml'
 gem 'devise'
 gem 'will_paginate','3.0.4'
 
@@ -26,6 +27,22 @@ end
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'validates_timeliness'
+
+group :development, :test do
+  gem 'pry-rails'
+  gem 'pry-debugger'
+  gem 'pry-stack_explorer'
+
+  gem 'annotate'
+
+  gem 'quiet_assets'
+  gem 'better_errors'
+  # BetterErrors.editor = :sublime if defined? BetterErrors  (initializer)
+  # http://localhost:3000/__better_errors (reports last exception for debugging)
+  gem 'binding_of_caller'
+  gem 'meta_request'
+  # Add RailsPanel extension in the Chrome Web Store
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
