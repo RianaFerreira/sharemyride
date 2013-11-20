@@ -1,4 +1,7 @@
  <div class="row page-body">
+
+  <%= render :partial => "errors" %>
+
   <h1>Trip Information</h1>
   <!-- include a route map -->
   <div class="large-12 columns">
@@ -12,9 +15,11 @@
         <li><span>Departure Date </span><span><%= @trip.dept_date.strftime("%a, %m-%d-%y") %></span></li>
         <li><span>Departure Point </span><span><%= @trip.start_point.name %></span></li>
         <li><span>Destination </span><span><%= @trip.end_point.name %></span></li>
-        <li><span>Available Seats </span><span><%= @trip.num_seats %></span></li>
+        <li><span>Available Seats </span><span id="seats-<%=@trip.id %>"><%= @trip.seats_available %></span></li>
         <li><span>Seat Price </span><span><%= number_to_currency(@trip.seat_cost) %></span></li>
       </ul>
+
+      <%= link_to('Book Seat', book_path(@trip), :class => "btn_book button") %>
 
   </div>
 </div>

@@ -4,8 +4,8 @@ Sharemyride::Application.routes.draw do
   root :to => 'home#index'
 
   get '/trips/search' => 'trips#search'
+  post '/trips/:id/book' => 'trips#book', :as => :book
   resources :trips
-
 
   # routes for user authentication
   devise_for :users

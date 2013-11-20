@@ -2,18 +2,20 @@
 #
 # Table name: trips
 #
-#  id         :integer          not null, primary key
-#  dept_date  :datetime
-#  num_seats  :integer
-#  seat_cost  :decimal(8, 2)
-#  driver_id  :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id              :integer          not null, primary key
+#  dept_date       :datetime
+#  total_seats     :integer
+#  seats_available :integer
+#  seat_cost       :decimal(8, 2)
+#  driver_id       :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
 #
 
 class Trip < ActiveRecord::Base
+  before_create :setup_available_seats
   # mass data assignment allowed for these attributes
-  attr_accessible :dept_date, :num_seats, :seat_cost, :driver_id, :locations_attributes
+  attr_accessible :dept_date, :total_seats, :seats_available, :seat_cost, :driver_id, :locations_attributes
 
   # table associations
   has_many :passengers
@@ -22,7 +24,13 @@ class Trip < ActiveRecord::Base
   accepts_nested_attributes_for :locations
 
   # db validations applied to attributes
-  validates :dept_date, :num_seats, :seat_cost, :presence => true
+  validates :dept_date, :total_seats, :seat_cost, :presence => true
+  validates :total_seats, numericality: { only_integer: true }
+  validates :seat_cost, numericality: true
+
+  def setup_available_seats
+    self.seats_available = self.total_seats
+  end
 
   def search_query
     #move the code to build up the seach query here

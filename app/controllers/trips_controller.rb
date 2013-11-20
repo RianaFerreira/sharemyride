@@ -104,4 +104,23 @@
     end
   end
 
+  def book
+    @trip = Trip.find(params[:id])
+
+    if @trip.seats_available > 0
+      @passenger = Passenger.new
+
+      @passenger.trip_id = @trip.id
+      @passenger.user_id = current_user.id
+      @passenger.save
+
+      @trip.seats_available -= 1
+      @trip.save
+    end
+
+    respond_to do |format|
+      format.json { render :json => @trip }
+    end
+
+  end
 end

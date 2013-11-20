@@ -32,11 +32,12 @@ ActiveRecord::Schema.define(:version => 20131117061739) do
 
   create_table "trips", :force => true do |t|
     t.datetime "dept_date"
-    t.integer  "num_seats"
-    t.decimal  "seat_cost",  :precision => 8, :scale => 2
+    t.integer  "total_seats"
+    t.integer  "seats_available"
+    t.decimal  "seat_cost",       :precision => 8, :scale => 2
     t.integer  "driver_id"
-    t.datetime "created_at",                               :null => false
-    t.datetime "updated_at",                               :null => false
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
   end
 
   create_table "users", :force => true do |t|

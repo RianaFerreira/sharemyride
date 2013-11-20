@@ -17,13 +17,13 @@ u2 = User.create(:email => 'fuzzy@gmail.com', :password => 'password')
 #passenger
 u3 = User.create(:email => 'mojo@gmail.com', :password => 'password')
 
-t1 = Trip.create(:dept_date => '01-01-2014', :num_seats => '2', :seat_cost => '50.50')
+t1 = Trip.create(:dept_date => '01-01-2014', :total_seats => '2', :seat_cost => '50.50')
 t1.driver_id = u1.id
 t1.save
-t2 = Trip.create(:dept_date => '20-12-2013', :num_seats => '3', :seat_cost => '25.50')
+t2 = Trip.create(:dept_date => '20-12-2013', :total_seats => '3', :seat_cost => '25.50')
 t2.driver_id = u1.id
 t2.save
-t3 = Trip.create(:dept_date => '30-11-2013', :num_seats => '1', :seat_cost => '40.50')
+t3 = Trip.create(:dept_date => '30-11-2013', :total_seats => '1', :seat_cost => '40.50')
 t3.driver_id = u2.id
 t3.save
 
