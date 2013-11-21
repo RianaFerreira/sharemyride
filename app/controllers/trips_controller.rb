@@ -49,6 +49,9 @@
   end
 
   def new
+    # find seats a driver has booked
+    @booked_seats = Passenger.where(:user_id => current_user.id).map(&:trip)
+
     # initialize a new trip
     @trip = Trip.new
     @locationA = Location.new

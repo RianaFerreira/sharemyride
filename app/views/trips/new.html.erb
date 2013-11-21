@@ -27,7 +27,7 @@
   </div>
 
    <div class="large-7 columns">
-      <h2>All Your Trips</h2>
+      <h2>Trips you have scheduled</h2>
       <!-- display trip details for the user-->
       <table>
         <thead>
@@ -35,7 +35,7 @@
             <td>Depart Date</td>
             <td>Departure</td>
             <td>Destination</td>
-            <td>otal Seats</td>
+            <td>Total Seats</td>
             <td>Booked Seats</td>
             <td>Price</td>
           </tr>
@@ -54,4 +54,25 @@
         </tr>
        <% end %>
    </table>
+
+    <h2>Seats you have booked</h2>
+    <table>
+      <thead>
+        <tr>
+          <td>Depart Date</td>
+          <td>Departure</td>
+          <td>Destination</td>
+          <td>Price</td>
+        </tr>
+      </thead>
+      <% @booked_seats.each do |seat| %>
+        <tr>
+          <td><%= seat.dept_date %></td>
+          <td><%= seat.start_point.name %></td>
+          <td><%= seat.end_point.name %></td>
+          <td><%= seat.seat_cost%></td>
+        </tr>
+      <% end %>
+    </table>
+
 </div>
