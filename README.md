@@ -1,8 +1,6 @@
-ShareMyRide
+ShareMyRide - General Assembly WDI Assignment 2 Week 8
 
-SUMMARY
-Assignment 2 Week 8
-This application is for users
+This application is for anyone who would like to share a trip by car within Australia. It's like virtual hitchhiking for someone who may be travelling the same route. Share the trip, get to know someone new and share the costs, if you're interested.
 
 GITHUB REPOSITORY
 https://github.com/RianaFerreira/sharemyride.git
