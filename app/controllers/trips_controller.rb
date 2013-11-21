@@ -96,7 +96,7 @@
   def destroy
     # remove a selected trip
     @trip = Trip.find(params[:id])
-    @passenger_trip = Passenger.find
+
     if @trip.destroy
       redirect_to new_trip_path
     else
