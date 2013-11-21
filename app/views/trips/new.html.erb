@@ -69,10 +69,10 @@
       </thead>
       <% @booked_seats.each do |seat| %>
         <tr>
-          <td><%= seat.dept_date %></td>
+          <td><%= link_to seat.dept_date.strftime("%a, %m-%d-%y"), trip_path(seat.id) %></td>
           <td><%= seat.start_point.name %></td>
           <td><%= seat.end_point.name %></td>
-          <td><%= seat.seat_cost%></td>
+          <td><%= number_to_currency(seat.seat_cost) %></td>
         </tr>
       <% end %>
     </table>

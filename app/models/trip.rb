@@ -18,8 +18,8 @@ class Trip < ActiveRecord::Base
   attr_accessible :dept_date, :total_seats, :seats_available, :seat_cost, :driver_id, :locations_attributes
 
   # table associations
-  has_many :passengers
-  has_many :locations
+  has_many :passengers, dependent: :destroy
+  has_many :locations, dependent: :destroy
   belongs_to :driver, :foreign_key => 'driver_id', :class_name => 'User'
   accepts_nested_attributes_for :locations
 
