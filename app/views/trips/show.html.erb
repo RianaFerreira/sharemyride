@@ -1,27 +1,45 @@
  <div class="row page-body">
 
-  <%= render :partial => "errors" %>
-
-  <h1>Trip Information</h1>
   <!-- include a route map -->
-  <div class="row">
-    <div class="large-2 columns"><%= image_tag( avatar_url(@trip.driver) ) %></div>
-  </div>
 
   <div class="large-12 columns">
-      <ul>
-        <!-- Driver Profile -->
-        <li></li>
-        <li><%= @trip.driver.email %></li>
+    <div class="row">
+      <div class="large-12 columns">
+        <%= render :partial => "errors" %>
+         <h1>Trip Information</h1>
+      </div>
+    </div>
 
-        <!-- Trip Details -->
-        <li><span>Departure Date </span><span><%= @trip.dept_date.strftime("%a, %m-%d-%y") %></span></li>
-        <li><span>Departure Point </span><span><%= @trip.start_point.name %></span></li>
-        <li><span>Destination </span><span><%= @trip.end_point.name %></span></li>
-        <li><span>Available Seats </span><span id="seats-<%=@trip.id %>"><%= @trip.seats_available %></span></li>
-        <li><span>Seat Price </span><span><%= number_to_currency(@trip.seat_cost) %></span></li>
-      </ul>
+    <!-- Driver Profile -->
+    <div class="row">
+      <div class="large-6 columns"><%= image_tag( avatar_url(@trip.driver) ) %></div>
+      <div class="large-6 columns"><%= @trip.driver.email %></div>
+    </div>
 
-        <%= link_to('Book Seat', book_path(@trip), :class => "btn_book button") %>
+    <!-- Trip Details -->
+    <div class="row">
+      <div class="large-6 columns">Departure Date</div>
+      <div class="large-6 columns"><%= @trip.dept_date.strftime("%a, %m-%d-%y") %></div>
+    </div>
+    <div class="row">
+      <div class="large-6 columns">Departure Point</div>
+      <div class="large-6 columns"><%= @trip.start_point.name %></div>
+    </div>
+    <div class="row">
+      <div class="large-6 columns">Destination</div>
+      <div class="large-6 columns"><%= @trip.end_point.name %></div>
+    </div>
+    <div class="row">
+      <div class="large-6 columns">Available Seats</div>
+      <div class="large-6 columns" id="seats-<%=@trip.id %>"><%= @trip.seats_available  %></div>
+    </div>
+    <div class="row">
+      <div class="large-6 columns">Seat Price</div>
+      <div class="large-6 columns"><%= number_to_currency(@trip.seat_cost)  %></div>
+    </div>
+    <div class="row">
+      <div class="large-12 columns"><%= link_to('Book Seat', book_path(@trip), :class => "btn_book button") %></div>
+    </div>
+
   </div>
 </div>
