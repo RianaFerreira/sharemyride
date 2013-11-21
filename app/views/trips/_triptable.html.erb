@@ -1,4 +1,4 @@
-    <table>
+<!--     <table>
       <thead>
         <tr>
           <th></th>
@@ -7,10 +7,10 @@
           <th>Destination</th>
           <th>Seats</th>
           <th>Price</th>
-          <% if user_signed_in? %>
+          <%# if user_signed_in? %>
             <th>Book</th>
-          <% end %>
+          <%# end %>
         </tr>
       </thead>
-      <%= render :partial => "trips/trip", :collection => @trips %>
-    </table>
+    </table> -->
+    <%= render :partial => "trips/trip", :collection => @trips %>

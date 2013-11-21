@@ -1,20 +1,24 @@
-<tr>
-  <td><%= image_tag( avatar_url(trip.driver) ) %></td>
+<div class="row">
+  <div class="large-1 columns"><%= image_tag( avatar_url(trip.driver) ) %></div>
 
   <!-- only allow user to view trip details if they're signed in -->
-  <% if user_signed_in? %>
-    <td><%= link_to trip.dept_date.strftime("%a, %m-%d-%y"), trip_path(trip.id) %></td>
-  <% else %>
-    <td><%= trip.dept_date.strftime("%a, %m-%d-%y") %></td>
-  <% end %>
+  <div class="large-2 columns">
+    <% if user_signed_in? %>
+      <%= link_to trip.dept_date.strftime("%a, %m-%d-%y"), trip_path(trip.id) %>
+    <% else %>
+      <%= trip.dept_date.strftime("%a, %m-%d-%y") %>
+    <% end %>
+  </div>
 
-  <td><%= trip.start_point.name %></td>
-  <td><%= trip.end_point.name %></td>
-  <td id="seats-<%=trip.id%>"><%= trip.seats_available %></td>
-  <td><%= number_to_currency(trip.seat_cost) %></td>
+  <div class="large-3 columns"><%= trip.start_point.name %></div>
+  <div class="large-3 columns"><%= trip.end_point.name %></div>
+  <div class="large-1 columns" id="seats-<%=trip.id%>"><%= trip.seats_available %></div>
+  <div class="large-1 columns"><%= number_to_currency(trip.seat_cost) %></div>
 
   <!-- only allow user to book a seat on a trip if they're signed in -->
-  <% if user_signed_in? %>
-    <td><%= link_to "Book", book_path(trip), :class => "btn_book button" %></td>
-  <% end %>
-</tr>
+  <div class="large-1 columns">
+    <% if user_signed_in? %>
+      <%= link_to "Book", book_path(trip), :class => "btn_book button" %>
+    <% end %>
+  </div>
+</div>

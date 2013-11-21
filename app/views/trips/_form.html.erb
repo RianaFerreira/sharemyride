@@ -47,14 +47,14 @@
         </thead>
 
         <% @driver_trips.each do |trip| %>
-            <tr>
-              <td><%= link_to(trip.dept_date.strftime("%a, %m-%d-%y"), edit_trip_path(trip.id)) %></td>
-              <td><%= trip.start_point.name %></td>
-              <td><%= trip.end_point.name %></td>
-              <td><%= trip.total_seats %></td>
-              <td><%= number_to_currency(trip.seat_cost) %></td>
-            </tr>
-          <% end %>
+          <tr>
+            <td><%= link_to(trip.dept_date.strftime("%a, %m-%d-%y"), edit_trip_path(trip.id)) %></td>
+            <td><%= trip.start_point.name %></td>
+            <td><%= trip.end_point.name %></td>
+            <td><%= trip.total_seats %></td>
+            <td><%= number_to_currency(trip.seat_cost) %></td>
+          </tr>
+        <% end %>
 
     </table>
    </div>

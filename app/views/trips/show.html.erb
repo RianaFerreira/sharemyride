@@ -4,11 +4,14 @@
 
   <h1>Trip Information</h1>
   <!-- include a route map -->
-  <div class="large-12 columns">
+  <div class="row">
+    <div class="large-2 columns"><%= image_tag( avatar_url(@trip.driver) ) %></div>
+  </div>
 
+  <div class="large-12 columns">
       <ul>
         <!-- Driver Profile -->
-        <li><%= image_tag( avatar_url(@trip.driver) ) %></li>
+        <li></li>
         <li><%= @trip.driver.email %></li>
 
         <!-- Trip Details -->
