@@ -25,7 +25,7 @@ APIs
 Google Maps JavaScript API v3 - auto-completion of the trip locations https://developers.google.com/maps/documentation/javascript/examples/map-geolocation
 
 REFERENCE MATERIAL
-Images -
+Gravatar - show for drivers with scheduled trips https://github.com/railscasts/244-gravatar
 Colour Scheme - https://kuler.adobe.com/create/color-wheel/
 Hipster Ipsum - generic website content http://hipsteripsum.me (I know, I know, I should have taken more time with this, maybe one day I'll return to the project and redeem myself)
 Device Bugs - research identified problems for mobile solution https://github.com/scottjehl/Device-Bugs/issues

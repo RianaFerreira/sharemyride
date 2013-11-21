@@ -32,15 +32,15 @@ class Trip < ActiveRecord::Base
     self.seats_available = self.total_seats
   end
 
-  def search_query
-    #move the code to build up the seach query here
-  end
-
   def start_point
     locations.where(:trip_position => 0).first
   end
 
   def end_point
     locations.where(:trip_position => 1).first
+  end
+
+  def search_query
+    #move the code to build up the seach query here
   end
 end
