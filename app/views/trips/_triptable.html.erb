@@ -1,16 +1,7 @@
-<!--     <table>
-      <thead>
-        <tr>
-          <th></th>
-          <th>Departure Date</th>
-          <th>Departure Point</th>
-          <th>Destination</th>
-          <th>Seats</th>
-          <th>Price</th>
-          <%# if user_signed_in? %>
-            <th>Book</th>
-          <%# end %>
-        </tr>
-      </thead>
-    </table> -->
-    <%= render :partial => "trips/trip", :collection => @trips %>
+
+<!-- Foundation modal logic that will display the map for the trip route -->
+<div id="myModal" class="reveal-modal">
+  <h2>Awesome. I have it.</h2>
+  <div id="map-canvas" style="width:500px; height:550px;"></div>
+</div>
+<%= render :partial => "trips/trip", :collection => @trips %>

@@ -10,7 +10,8 @@
     <% end %>
   </div>
 
-  <div class="large-3 columns"><%= trip.start_point.name %></div>
+  <!-- show the google map and render the route of the selected trip -->
+  <div class="large-3 columns"><%= link_to trip.start_point.name,  trip_path(trip), :class => "map-modal" %></div>
   <div class="large-3 columns"><%= trip.end_point.name %></div>
   <div class="large-1 columns" id="seats-<%=trip.id%>"><%= trip.seats_available %></div>
   <div class="large-1 columns"><%= number_to_currency(trip.seat_cost) %></div>
@@ -22,3 +23,4 @@
     <% end %>
   </div>
 </div>
+

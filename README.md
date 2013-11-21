@@ -14,6 +14,7 @@ Pivotal Tracker - story management https://www.pivotaltracker.com/projects/95837
 RUBY GEMS
 Devise - user authentication features https://github.com/plataformatec/devise#getting-started
 Foundation - responsive front-end framework https://github.com/zurb/foundation
+Foundation Icons 3 - icon fonts https://github.com/zaiste/foundation-icons-sass-rails
 
 
 JQUERY PLUGINS

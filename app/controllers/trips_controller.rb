@@ -8,6 +8,11 @@
   def show
     # find a selected trip
     @trip = Trip.find(params[:id])
+
+    respond_to do |format|
+      format.json { render :json => @trip, :include => :locations }
+      format.html
+    end
   end
 
   def index
