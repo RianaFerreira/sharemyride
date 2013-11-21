@@ -30,7 +30,6 @@
 
     if params[:depart].present?
       # Horrible magic, please disregard.
-      #depart = params[:depart].split(',')[0] # Just the city please.
       depart = params[:depart]
       @trips = @trips.select do |trip|
         depart.in?(
@@ -41,7 +40,6 @@
 
     if params[:destination].present?
       # Horrible magic, please disregard.
-      #destination = params[:destination].split(',')[0] # Just the city please.
       destination = params[:destination]
       @trips = @trips.select do |trip|
         destination.in?(

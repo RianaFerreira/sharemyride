@@ -2,14 +2,10 @@
 
   <%= render :partial => "errors" %>
 
-  <h1>Alter Trip</h1>
+  <h1>Alter Trip Information</h1>
 
   <div class="large-6 columns">
-
-    <h2>Trip Information</h2>
-
     <%= form_for(@trip, html: {class:'custom geocode'}) do |f| %>
-
       <%= label_tag(:dept_date, "Departure Date") %>
       <%= f.text_field(:dept_date, class: 'date') %>
 
@@ -29,9 +25,7 @@
 
       <%= f.submit "Save Trip" %>
       <%= link_to('Cancel Trip', @trip, method: :delete, :class => "button") %>
-
     <% end %>
-
   </div>
 
 </div>
