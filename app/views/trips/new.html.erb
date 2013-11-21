@@ -1,6 +1,6 @@
 <div class="row page-body">
 
-  <div class="large-4 columns">
+  <div class="large-5 columns">
     <h2>Add Trip</h2>
     <%= render :partial => "errors" %>
     <%= form_for(@trip, html: {class:'custom geocode'}) do |f| %>
@@ -26,28 +26,32 @@
     <% end %>
   </div>
 
-   <div class="large-8 columns">
+   <div class="large-7 columns">
       <h2>All Your Trips</h2>
       <!-- display trip details for the user-->
-      <div class="row">
-        <div class="large-1 columns">Depart Date</div>
-        <div class="large-2 columns">Departure</div>
-        <div class="large-2 columns">Destination</div>
-        <div class="large-1 columns">Total Seats</div>
-        <div class="large-1 columns">Booked Seats</div>
-        <div class="large-1 columns">Seat Price</div>
+      <table>
+        <thead>
+          <tr>
+            <td>Depart Date</td>
+            <td>Departure</td>
+            <td>Destination</td>
+            <td>otal Seats</td>
+            <td>Booked Seats</td>
+            <td>Price</td>
+          </tr>
+        </thead>
       </div>
 
       <!-- loop through all the trips associated with the user and list them here -->
        <% @driver_trips.each do |trip| %>
-        <div class="row">
-          <div class="large-1 columns"><%= link_to(trip.dept_date.strftime("%a, %m-%d-%y"), edit_trip_path(trip.id)) %></div>
-          <div class="large-2 columns"><%= trip.start_point.name %></div>
-          <div class="large-2 columns"><%= trip.end_point.name %></div>
-          <div class="large-1 columns"><%= trip.total_seats %></div>
-          <div class="large-1 columns"><%= trip.seats_available %></div>
-          <div class="large-1 columns"><%= number_to_currency(trip.seat_cost) %></div>
-        </div>
+        <tr>
+          <td><%= link_to(trip.dept_date.strftime("%a, %m-%d-%y"), edit_trip_path(trip.id)) %></td>
+          <td><%= trip.start_point.name %></td>
+          <td><%= trip.end_point.name %></td>
+          <td><%= trip.total_seats %></td>
+          <td><%= trip.seats_available %></td>
+          <td><%= number_to_currency(trip.seat_cost) %></td>
+        </tr>
        <% end %>
-   </div>
+   </table>
 </div>
