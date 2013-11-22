@@ -72,6 +72,7 @@
     if @trip.save
       redirect_to new_trip_path
     else
+      @booked_seats = Passenger.where(:user_id => current_user.id).map(&:trip)
       #logger.debug @trip.errors.to_json
       render :action => :new
     end

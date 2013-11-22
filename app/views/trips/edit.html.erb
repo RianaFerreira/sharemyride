@@ -23,7 +23,7 @@
         <% end %>
       <% end %>
 
-      <%= f.submit "Save Trip" %>
+      <%= f.submit "Save Trip", :class => 'button' %>
       <%= link_to('Cancel Trip', @trip, method: :delete, :class => "button") %>
     <% end %>
   </div>

@@ -5,8 +5,8 @@ This application is for anyone who would like to share a trip by car within Aust
 GITHUB REPOSITORY
 https://github.com/RianaFerreira/sharemyride.git
 
-HEROKU URL
-http://gasharemyride.herokuapp.com/
+HEROKU URL http://gasharemyride.herokuapp.com/
+Database migration on Heroku https://gist.github.com/njvitto/362873
 
 PROJECT MANAGEMENT
 Pivotal Tracker - story management https://www.pivotaltracker.com/projects/958378
@@ -22,6 +22,10 @@ jQuery UI - date picker for trip creation http://jqueryui.com/datepicker/
 
 APIs
 Google Maps JavaScript API v3 - auto-completion of the trip locations https://developers.google.com/maps/documentation/javascript/examples/map-geolocation
+Foundation modeal - display map for a selected trip in the search results http://foundation5.zurb.com/docs/components/reveal.html
+Troubleshooting displaying the map in a foundatin modal
+http://stackoverflow.com/questions/16321577/google-maps-api-v3-foundation-4-reveal-modal-not-displaying-properly
+http://www.cannonade.net/geo31.js
 
 REFERENCE MATERIAL
 Gravatar - show for drivers with scheduled trips https://github.com/railscasts/244-gravatar

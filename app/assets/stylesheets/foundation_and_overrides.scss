@@ -92,7 +92,7 @@ $secondary-color: $color-5;
 //
 
 // We use these to control header font styles
-// $header-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$header-font-family: 'Permanent Marker', cursive;
 // $header-font-weight: bold;
 // $header-font-style: normal;
 $header-font-color: $color-3;
@@ -121,10 +121,10 @@ $header-font-color: $color-3;
 // $small-font-color: lighten($header-font-color, 30%);
 
 // We use these to style paragraphs
-// $paragraph-font-family: inherit;
+$paragraph-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $paragraph-font-weight: normal;
 // $paragraph-font-size: 1em;
-// $paragraph-line-height: 1.6;
+$paragraph-line-height: 1.6;
 // $paragraph-margin-bottom: emCalc(20px);
 // $paragraph-aside-font-size: emCalc(14px);
 // $paragraph-aside-line-height: 1.35;
