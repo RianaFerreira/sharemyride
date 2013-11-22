@@ -1,3 +1,6 @@
+<!-- Application Helper method title will reference this tag and render it's value in layout view-->
+<% title 'Search' %>
+
 <div id="search-container" class="row">
 
   <div class="large-12 columns search">
@@ -11,7 +14,7 @@
     <div class="row search-bar">
 
       <%= form_tag '/trips/search', class: 'custom geocode', :method => 'get' do %>
-
+      <!-- Use the geocode.js to auto complete the departure and destination city fields -->
         <div class="large-4 columns">
           <%= text_field_tag 'depart',nil, placeholder: 'Departure City', class:'depart'  %>
         </div>

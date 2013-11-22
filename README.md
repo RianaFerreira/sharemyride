@@ -18,17 +18,27 @@ Foundation Icons 3 - icon fonts https://github.com/zaiste/foundation-icons-sass-
 
 
 JQUERY PLUGINS
-jQuery UI - date picker for trip creation http://jqueryui.com/datepicker/
+jQuery Geocoding and Places Autocomplete plugin that works with the Google Maps API
+  http://ubilabs.github.io/geocomplete/
+jQuery UI - date picker for trip creation
+  http://jqueryui.com/datepicker/
+  http://api.jqueryui.com/datepicker/
 
 APIs
-Google Maps JavaScript API v3 - auto-completion of the trip locations https://developers.google.com/maps/documentation/javascript/examples/map-geolocation
-Foundation modeal - display map for a selected trip in the search results http://foundation5.zurb.com/docs/components/reveal.html
-Troubleshooting displaying the map in a foundatin modal
-http://stackoverflow.com/questions/16321577/google-maps-api-v3-foundation-4-reveal-modal-not-displaying-properly
-http://www.cannonade.net/geo31.js
+Trip location search field autocomplete
+  Google Maps JavaScript API v3 - auto-completion of the trip locations https://developers.google.com/maps/documentation/javascript/examples/map-geolocation
+  componentRestrictions https://developers.google.com/maps/documentation/javascript/places-autocomplete
+
+Map with trip route
+  Foundation reveal modal - display map for a selected trip in the search results http://foundation5.zurb.com/docs/components/reveal.html
+  Troubleshooting displaying the map in a foundation modal
+  http://stackoverflow.com/questions/16321577/google-maps-api-v3-foundation-4-reveal-modal-not-displaying-properly
+  http://www.cannonade.net/geo31.js
 
 REFERENCE MATERIAL
 Gravatar - show for drivers with scheduled trips https://github.com/railscasts/244-gravatar
+Dynamic Page Titles - http://railscasts.com/episodes/30-pretty-page-title
 Colour Scheme - https://kuler.adobe.com/create/color-wheel/
-Hipster Ipsum - generic website content http://hipsteripsum.me (I know, I know, I should have taken more time with this, maybe one day I'll return to the project and redeem myself)
+Hipster Ipsum - generic website content http://hipsteripsum.me
 Device Bugs - research identified problems for mobile solution https://github.com/scottjehl/Device-Bugs/issues
+

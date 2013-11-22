@@ -1,5 +1,7 @@
- <div class="row page-body">
+<!-- Application Helper method title will reference this tag and render it's value in layout view-->
+<% title 'This Trip' %>
 
+ <div class="row page-body">
   <div class="large-12columns">
     <div class="row">
       <div class="large-12 columns">
@@ -29,6 +31,7 @@
     </div>
     <div class="row">
       <div class="large-6 columns">Available Seats</div>
+      <!-- booking.js updates the seats available-->
       <div class="large-6 columns" id="seats-<%= @trip.id %>"><%= @trip.seats_available %></div>
     </div>
     <div class="row">
