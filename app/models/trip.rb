@@ -27,6 +27,13 @@ class Trip < ActiveRecord::Base
   validates :dept_date, :total_seats, :seat_cost, :presence => true
   validates :total_seats, numericality: { only_integer: true }
   validates :seat_cost, numericality: true
+  validate :dept_date_cannot_be_in_the_past
+
+  def dept_date_cannot_be_in_the_past
+    if dept_date.present? && dept_date < Date.today
+      errors.add(:dept_date, "can't be in the past")
+    end
+  end
 
   def setup_available_seats
     self.seats_available = self.total_seats
