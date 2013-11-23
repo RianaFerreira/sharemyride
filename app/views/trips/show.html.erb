@@ -2,7 +2,8 @@
 <% title 'This Trip' %>
 
  <div class="row page-body">
-  <div class="large-12columns">
+  <div class="large-6 columns">
+
     <div class="row">
       <div class="large-12 columns">
         <%= render :partial => "errors" %>
@@ -21,30 +22,36 @@
       <div class="large-6 columns">Departure Date</div>
       <div class="large-6 columns"><%= @trip.dept_date.strftime("%a, %m-%d-%y") %></div>
     </div>
+
     <div class="row">
       <div class="large-6 columns">Departure Point</div>
       <div class="large-6 columns"><%= @trip.start_point.name %></div>
     </div>
+
     <div class="row">
       <div class="large-6 columns">Destination</div>
       <div class="large-6 columns"><%= @trip.end_point.name %></div>
     </div>
+
     <div class="row">
       <div class="large-6 columns">Available Seats</div>
       <!-- booking.js updates the seats available-->
       <div class="large-6 columns" id="seats-<%= @trip.id %>"><%= @trip.seats_available %></div>
     </div>
+
     <div class="row">
       <div class="large-6 columns">Seat Price</div>
       <div class="large-6 columns"><%= number_to_currency(@trip.seat_cost)  %></div>
     </div>
+
     <div class="row">
-      <div class="large-12 columns"><%= link_to('Book Seat', book_path(@trip), :class => "btn_book button") %></div>
+      <div class="large-6 columns"><%= link_to('Book Seat', book_path(@trip), :class => "btn_book button") %></div>
+      <div class="large-6 columns"><%= link_to('Route Map', @trip, :class => "btn_map button") %></div>
     </div>
   </div>
+        <!-- Show the route on a map -->
+    <div class="large-6 columns">
+      <div id="map-canvas" style="width:450px; height:450px;"></div>
+    </div>
 
-  <!-- Show the route on a map -->
-<!--   <div class="large-6 columns">
-    <div id="map-canvas" style="width:400px; height:450px;"></div>
-  </div>
-</div> -->
+</div>

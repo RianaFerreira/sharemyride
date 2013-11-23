@@ -2,7 +2,7 @@
 // reference for rendering map on full canvas area http://stackoverflow.com/questions/16321577/google-maps-api-v3-foundation-4-reveal-modal-not-displaying-properly
 $(document).ready(function() {
   // prevents googlemaps error on non js pages if the canvas element doesn't exist
-  if($('#myModal').length == 0){
+  if($('#map-canvas').length == 0){
     //this javascript should only run when map modal is in the DOM
     return;
   }
@@ -21,7 +21,16 @@ $(document).ready(function() {
   // link directions to the map
   directionsDisplay.setMap(map);
 
-  // link click opens the modal
+  // on the show view when the Route Map button is clicked
+  $('.btn_map').on('click', function(event){
+    event.preventDefault();
+    var self = $(this);
+    url = self.attr('href');
+    showMap();
+
+  });
+
+  // on index view departure link click opens the modal
   $('.map-modal').on('click', function(event){
     event.preventDefault();
     var self = $(this);
@@ -29,8 +38,8 @@ $(document).ready(function() {
     $('#myModal').foundation('reveal', 'open');
   });
 
-  // once the modal has finished rendering
-  $('#myModal').on('opened', function () {
+    var showMap = function(){
+      console.log('here');
     // load the map on the full canvas not only the top left corner
     google.maps.event.trigger(map, "resize");
     $.ajax({
@@ -61,6 +70,9 @@ $(document).ready(function() {
 
     });
 
-  });
+  };
+
+  // once the modal has finished rendering
+  $('#myModal').on('opened',showMap);
 
 });

@@ -21,6 +21,7 @@
         <%= f.fields_for :locations, location do |location_fields| %>
           <%= label_tag(:name, location.trip_position == 0 ? 'Depart': 'Destination') %>
           <%= location_fields.text_field(:name, class:location.trip_position == 0 ? 'depart': 'destination' ) %>
+          <!-- hidden fields stil generate html tags that can be referenced to access data -->
           <%= location_fields.hidden_field :trip_position %>
           <%= location_fields.hidden_field :lat %>
           <%= location_fields.hidden_field :long %>

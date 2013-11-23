@@ -1,7 +1,7 @@
 'use strict';
 (function($){
   $(document).ready(function(){
-
+    // geocode and datepicker applied on the search, add and edit trip views
     // restrict the auto completes to cities within Australia
     var geoOpts = {
       componentRestrictions:{country:'au'}, //restrict autocomplete to filter by country
@@ -9,9 +9,9 @@
     };
 
     // http://ubilabs.github.io/geocomplete/ reference Events
-    // set the geocomplete event on the element with class depart
-    $('.geocode .depart').geocomplete(geoOpts).bind('geocode:result', function(event,result){
-      // if the geocode was successful
+    // the autocomplete will work on all fields with the .geocode and .depart classes (search, new and edit views)
+    $('.geocode .depart').geocomplete(geoOpts).bind('geocode:result', function(event, result){
+      // if the geocode lookup was successful set the lat an long values on the hidden fields in new and edit views
       $("#trip_locations_attributes_0_lat").val(result.geometry.location.lat());
       $("#trip_locations_attributes_0_long").val(result.geometry.location.lng());
     });
