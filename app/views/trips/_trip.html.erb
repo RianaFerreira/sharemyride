@@ -20,7 +20,8 @@
 
   <!-- only allow user to book a seat on a trip if they're signed in -->
   <div class="large-1 columns">
-    <% if user_signed_in? %>
+    <!-- The  -->
+    <% if user_signed_in? && ! (trip.id.in?(current_user.passengers.map &:trip_id)) %>
       <%= link_to "Book", book_path(trip), :class => "btn_book button" %>
     <% end %>
   </div>

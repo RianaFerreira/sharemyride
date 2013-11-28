@@ -17,4 +17,6 @@ class Passenger < ActiveRecord::Base
   belongs_to :trip
   belongs_to :user
 
+  #validation
+  validates :user_id, uniqueness: { scope: :trip_id}
 end

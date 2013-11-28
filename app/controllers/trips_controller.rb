@@ -17,19 +17,22 @@
 
   def index
     # instead of finding all trips only find those >= today
-    @trips = Trip.where('dept_date > ?', Time.now.beginning_of_day).order(:dept_date)
+    @trips = Trip.where('dept_date > ?', Time.now.beginning_of_day).where.not(user_id: current_user.id).order(:dept_date)
   end
 
   def search
-    # Sorry about all this, Daniel.
+    # if the date search parameter is supplied
     if params[:date].present?
+      # get all the trips on or after the supplied date
       @trips = Trip.where('dept_date >= ?', params[:date])
     else
+      # get all the trips after today
       @trips = Trip.where('dept_date > ?', Time.now.beginning_of_day).order(:dept_date)
     end
 
+    # if the departure location is supplied
     if params[:depart].present?
-      # Horrible magic, please disregard.
+      # get all the trips with the supplied departure location
       depart = params[:depart]
       @trips = @trips.select do |trip|
         depart.in?(
@@ -38,8 +41,9 @@
       end
     end
 
+    # if the destination location is supplied
     if params[:destination].present?
-      # Horrible magic, please disregard.
+      # get all the trips with the supplied destination location
       destination = params[:destination]
       @trips = @trips.select do |trip|
         destination.in?(
@@ -47,6 +51,7 @@
         )
       end
     end
+    #raise params.inspect
 
     render :index
   end
@@ -107,7 +112,6 @@
 
   def book
     @trip = Trip.find(params[:id])
-
     if @trip.seats_available > 0
       @passenger = Passenger.new
 
