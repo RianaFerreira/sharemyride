@@ -8,6 +8,9 @@ This application is for anyone who would like to share a trip by car within Aust
 *  feedback for the user when I click something until I realised I booked 5 times
 *  ability to cancel booking?
 *  more consistent user experience, for example I cannot confidently guess what some links will take me
+*  Trip reviews
+*  Driver ratings
+*  Content for the website
 
 ## GITHUB REPOSITORY
 *  https://github.com/RianaFerreira/sharemyride.git
