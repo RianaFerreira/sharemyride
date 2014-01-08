@@ -15,7 +15,8 @@ This application is for anyone who would like to share a trip by car within Aust
 ## GITHUB REPOSITORY
 *  https://github.com/RianaFerreira/sharemyride.git
 
-## HEROKU URL http://gasharemyride.herokuapp.com/
+## HEROKU
+http://gasharemyride.herokuapp.com/
 *  Database migration on Heroku https://gist.github.com/njvitto/362873
 
 ## PROJECT MANAGEMENT
